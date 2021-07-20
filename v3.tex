@@ -1,0 +1,83 @@
+\RequirePackage{xcolor}
+\documentclass{sciposter}
+\usepackage{multicol}
+\usepackage{graphicx,url}
+\usepackage[spanish]{babel}   
+\usepackage[utf8]{inputenc}
+
+\title{Simulación de epidemias bajo medidas de contingencia}
+\author{Avril Mejía, Omar Martínez y Elisa Schaeffer}
+\institute {Posgrado en Ingeniería de Sistemas}
+\email{amejiaa1900@alumno.ipn.mx}
+
+\leftlogo[1]{uanl.png} 
+\rightlogo[1]{fime.png}
+
+\begin{document}
+
+\conference{\raisebox{2cm}[0cm]{\includegraphics[width=50mm]{qr-code.png}}
+  \hfill
+  \raisebox{2cm}[0cm]{\includegraphics[width=50mm]{ipn.png}}
+  \hfill
+  \raisebox{2cm}[0cm]{\includegraphics[width=150mm]{verano2021.png}}}
+
+\maketitle
+\begin{abstract}
+Se busca implementar modelos del comportamiento de epidemias en una población mediante técnicas de simulación multi-agente, incorporando medidas de contingencia. El objetivo es identificar hasta qué grado diversos factores propician o disminuyen el número de contagios, y con ello, apoyar la toma de decisiones de salud pública.
+\end{abstract}
+
+\begin{multicols}{2}
+
+\section{Introducción}
+La humanidad ha sido asediada por enfermedades infecciosas a lo largo de la historia. Ejemplos en la era moderna incluyen las epidemias del SARS, MERS, influenza AH1N1, ébola, y en la actualidad, el SARS CoV-2, virus que causa la enfermedad conocida como \emph{covid-19}. Ante estas eventualidades, gobiernos de distintos niveles deben adoptar medidas prontas y efectivas para evitar una crisis de salud pública. Sin embargo, es difícil saber el impacto que tendrán las acciones tomadas ante un sistema complejo y dinámico, como lo es la propagación de una enfermedad en la población. Ante la inviabilidad logística, y quizá ética, de ensayar distintas medidas diréctamente a nivel población, surge la necesidad de realizar ensayos computacionales mediante modelos matemáticos de la enfermedad. La naturaleza aleatoria y evolutiva de los procesos de contagio hace de las simulaciones estocásticas una de las maneras más efectivas de estudiar y predecir el fenómeno.
+
+Las técnicas de simulación multi-agente permiten analizar y cuantificar los efectos de distintas medidas ante la propagación de enfermedades, tales como el distanciamiento social, el uso de cubrebocas, o el aislamiento social, además de interacciones con otros factores como la densidad poblacional, nivel socioeconómico y la calidad de aire. La comprensión de estas diferencias conlleva a una toma de decisiones facilitada y basada en evidencia científica. Esta propuesta continúa la investigación iniciada en los proyectos PAICyT IT512-15 \emph{Herramientas computacionales para análisis epidemiológico multifactorial} y PAICyT CE1421-20 \emph{Exploración algorítmica de relaciones entre calidad de aire y bienestar}.
+
+\subsection*{Hipótesis}
+
+La simulación de modelos epidemiológicos permite una toma de decisiones más informada y con mejores resultados.
+
+\subsection*{Objetivos}
+
+El objetivo general es diseñar, implementar y analizar una simulación multi-agente epidemiológica que permita medir los efectos que tienen distintas medidas de contención contra el contagio y propagación de una enfermedad infecciosa.\par
+Los \emph{objetivos específicos} para el presente proyecto son:\par
+\begin{itemize}
+  \item \textbf{Modelado matemático} Modelado matemático. Diseñar e implementar una simulación multiagente de un modelo epidemiológico.
+  \item \textbf{Software abierto} Implementar un prototipo computacional para explorar los efectos de distintas medidas de contingencia.
+  \item \textbf{Visualización científica} Cuantificar y visualizar los efectos de las diversas medidas para evitar la propagación del virus.
+\end{itemize}
+
+\section{Antecedentes}
+Los modelos matemáticos para el estudio de epidemias han sido estudiados por décadas (Bailey, 1975; Britton, 2010). Varios buscan predecir el tamaño final de una epidemia con alguna probabilidad, así como otros buscando controlar el contagio (Nowzari, Preciado, y Pappas, 2016), mientras otros han estudiado el impacto de las medidas de contención de la propagación del virus (Fransson y Trapman, 2019). En el caso específico de las simulaciones multi-agente, además de ser usadas para el estudio de epidemias (Hassin, 2021; Hoertel y cols., 2020a; Perez y Dragicevic, 2009; Venkatramanan y cols., 2018) también se han usado para abordar problemas de transporte (Hörl, 2017) o finanzas (Samitas, Polyzos, y Siriopoulos, 2018). Nuestro gobierno no está exento de los retos que presenta enfrentar una crisis sanitaria de naturaleza epidémica, y tomar la decisión equivocada puede tener costos exorbitantes tanto en materia económica como en vidas humanas (Lipsitch, Finelli, Heffernan, Leung, y Redd, 2011; Maringe y cols., 2020; Pasquini-Descomps, Brender, y Maradan, 2017). Proyectos como el que proponemos pueden ayudar a que se entiendan mejor los impactos de las medidas tomadas, ya sea para contener sus efectos o para tomar una decisión más informada.
+
+\section{Solución propuesta}
+
+Primero, se establecerán los parámetros epidémicos (e.g. tasa de contagio de la infección) y demográficos (e.g. edad de los agentes), mediante una revisión de la literatura. Teniendo definidos los parámetros, se procede a diseñar la simulación multiagente, basándonos en técnicas existentes (Hoertel y cols., 2020b; Silva y cols., 2020). Con la finalidad de medir el impacto en el número de infectados, se realizarán simulaciones variando parámetros como la probabilidad
+de contagio, y se incorporarán intervenciones como uso de cubrebocas, distanciamiento social, o la introducción de una vacuna con un porcentaje ajustable de efectividad. También se medirá el efecto de las intervenciones con respecto al momento en que se llevan acabo. Las hipótesis que surjan de nuestras simulaciones serán verificadas por medio de pruebas estadísticas.
+
+\subsection*{Herramientas}
+
+Como herramienta principal se tiene \textbf{NetworkX}, el cual forma parte de la paquetería de Python para la creación, manipulación y estudio de la estructura, dinámicas y funciones de redes complejas.
+
+\section{Experimentos}
+
+(Modelo que permita conocer el impacto de distintas intervenciones para facilitar la posible toma de decisiones ante la propagación de una enfermedad infecciosa)
+
+\section{Conclusiones}
+
+Por determinar
+
+\subsection*{Agradecimientos}
+
+{\small Programa Delfín, Instituto Politécnico Nacional.
+    
+    Fabiola Vázquez, Omar Martínez y Avril Mejía.
+    
+    El póster se preparó con \url{https://www.overleaf.com/}.}
+
+\end{multicols}
+
+\bibliography{poster}
+\bibliographystyle{plainnat}
+
+\end{document}
