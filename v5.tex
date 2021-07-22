@@ -10,15 +10,9 @@
 \usepackage[font=small,labelfont=bf]{caption}
 
 \title{Simulación de epidemias bajo medidas de contingencia}
-\author{Omar Martínez, Avril Mejía y Elisa Schaeffer}
-\institute {(carrera de Omar), Ingeniería en Sistemas Digitales
-
-Posgrado en Ingeniería de Sistemas}
-\email{carlos.martinezg@uanl.edu.mx
-
-amejiaa1900@alumno.ipn.mx
-
-elisa.schaeffer@uanl.edu.mx}
+\author{Omar Martínez$^\dagger$, Avril Mejía$^\ddagger$, Elisa Schaeffer$^\ast$}
+\institute {$^\dagger$Bachillerato Internacional, $^\ddagger$Ingeniería en Sistemas Digitales,\newline $^\ast$Posgrado en Ingeniería de Sistemas}
+\email{$^\dagger$carlos.martinezg@uanl.edu.mx, $^\ddagger$amejiaa1900@alumno.ipn.mx, $^\ast$elisa.schaeffer@uanl.edu.mx}
 
 \leftlogo[1]{uanl.png} 
 \rightlogo[1]{fime.png}
@@ -60,47 +54,48 @@ Los \emph{objetivos específicos} para el presente proyecto son:\par
 \end{itemize}
 
 \section{Antecedentes}
-Los modelos matemáticos para el estudio de epidemias han sido estudiados por \citet{decadas}. Varios buscan predecir el tamaño final de una epidemia con alguna probabilidad, así como otros buscando controlar el \citet{contagio} (Nowzari, Preciado, y Pappas, 2016), mientras otros han estudiado el impacto de las medidas de contención de la propagación del \citet{virus}. En el caso específico de las simulaciones multi-agente, además de ser usadas para el estudio de \citet{epidemias} también se han usado para abordar problemas de \citet{transporte} o \citet{finanzas}. Nuestro gobierno no está exento de los retos que presenta enfrentar una crisis sanitaria de naturaleza epidémica, y tomar la decisión equivocada puede tener costos exorbitantes tanto en materia económica como en vidas \citet{humanas}. Proyectos como el que proponemos pueden ayudar a que se entiendan mejor los impactos de las medidas tomadas, ya sea para contener sus efectos o para tomar una decisión más informada.
+Los modelos matemáticos para el estudio de epidemias han sido estudiados por décadas \cite{decadas}. Varios buscan predecir el tamaño final de una epidemia con alguna probabilidad, así como otros buscando controlar el contagio \cite{contagio}, mientras otros han estudiado el impacto de las medidas de contención de la propagación del virus \cite{virus}. En el caso específico de las simulaciones multi-agente, además de ser usadas para el estudio de epidemias \cite{epidemias} también se han usado para abordar problemas de transporte \cite{transporte} o finanzas \cite{finanzas}. 
 
-\begin{figure}
-\setcounter{figure}{1}
-\captionsetup{type=figure}
-\begin{center}
-   \includegraphics[width=0.5\textwidth]{curvas.eps}
-   \end{center}
-    \caption{Diagrama de modelo SIR}
-    \label{curvas}
-\end{figure}
+
 
 \section{Solución propuesta}
 
-Primero, se establecerán los parámetros epidémicos (e.g. tasa de contagio de la infección) y demográficos (e.g. edad de los agentes), mediante una revisión de la literatura. Teniendo definidos los parámetros, se procede a diseñar la simulación multiagente, basándonos en técnicas \citet{existentes}. Con la finalidad de medir el impacto en el número de infectados, se realizarán simulaciones variando parámetros como la probabilidad
+Primero, se establecerán los parámetros epidémicos (e.g. tasa de contagio de la infección) y demográficos (e.g. edad de los agentes), mediante una revisión de la literatura. Teniendo definidos los parámetros, se procede a diseñar la simulación multiagente, basándonos en técnicas existentes \cite{transporte}. Con la finalidad de medir el impacto en el número de infectados, se realizarán simulaciones variando parámetros como la probabilidad
 de contagio, y se incorporarán intervenciones como uso de cubrebocas, distanciamiento social, o la introducción de una vacuna con un porcentaje ajustable de efectividad. También se medirá el efecto de las intervenciones con respecto al momento en que se llevan acabo. Las hipótesis que surjan de nuestras simulaciones serán verificadas por medio de pruebas estadísticas.
 
 \subsection*{Herramientas}
 
-Como herramienta principal se tiene \textbf{NetworkX}, el cual forma parte de la paquetería de \emph{Python} para la creación, manipulación y estudio de la estructura, dinámicas y funciones de redes complejas.
+Como herramienta principal se tiene \textbf{Python 3.8}, el cual es un lenguaje de programación multiparadigma.
 
 \section{Experimentos}
 
-(Modelo que permita conocer el impacto de distintas intervenciones para facilitar la posible toma de decisiones ante la propagación de una enfermedad infecciosa)
+\begin{figure}[h]
+\setcounter{figure}{1}
+\captionsetup{type=figure}
+\begin{center}
+   \includegraphics[width=245mm]{imagen.png}
+   \end{center}
+    \caption{Modelo que permite conocer el impacto de distintas intervenciones para facilitar la posible toma de decisiones ante la propagación de una enfermedad infecciosa}
+    \label{imagen}
+    \centering
+\end{figure}
 
 \section{Conclusiones}
 
-Por determinar
+Al agregar medidas de contingencia en modelos como el que proponemos permitiría explorar sus efectos de forma cuantitativa
 
 \subsection*{Agradecimientos}
 
 {\small Esta propuesta continúa la investigación iniciada en los proyectos PAICyT IT512-15 \emph{Herramientas computacionales para análisis epidemiológico multifactorial} y PAICyT CE1421-20 \emph{Exploración algorítmica de relaciones entre calidad de aire y bienestar}.
     
-    (Omar Martínez Guerra agradece a PROVERICyT por la beca)
+    Carlos Omar Martinez Guerra agradece al programa PROVERICyT por brindarle la oportunidad de participar en el Verano Científico FIME 2021.
     Por su parte, Avril Paola Mejía Avianeda agradece al Instituto Politécnico Nacional por el otorgamiento de la beca, asimismo al Programa Delfín por brindarle la oportunidad de participar en este verano científico.
 
     Agradecemos a la Lic. Ericka Fabiola Vázquez Alcalá, quien inició su trabajo de maestría en este tema.
     
     El póster se preparó con \url{https://www.overleaf.com/}.}
 
-\end{multicols}
+\end{multicols} 
 
 \bibliography{poster}
 \bibliographystyle{plainnat}
