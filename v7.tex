@@ -1,0 +1,125 @@
+\RequirePackage{xcolor}
+\documentclass[a4]{sciposter}
+\usepackage{multicol,subfig}
+\usepackage{graphicx,url,hyperref,doi}
+\hypersetup{hidelinks} 
+\usepackage[spanish]{babel}   
+\usepackage[utf8]{inputenc}
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\usepackage{tikz}
+\tikzstyle{elem} = [draw, rectangle, ultra thin, minimum height=2em, minimum width=2em]
+\tikzstyle{line} = [draw, thick, -stealth, shorten >=1pt]
+
+\title{Simulación de epidemias bajo medidas de contingencia}
+\author{Omar Martínez$^\dagger$, Avril Mejía$^\ddagger$, Elisa Schaeffer$^\ast$}
+\institute {$^\dagger$Bachillerato Internacional, $^\ddagger$Ingeniería en Sistemas Digitales,\newline $^\ast$Posgrado en Ingeniería de Sistemas}
+\email{$^\dagger$carlos.martinezg@uanl.edu.mx, $^\ddagger$amejiaa1900@alumno.ipn.mx, $^\ast$elisa.schaeffer@uanl.edu.mx}
+
+\leftlogo[1]{uanl.png} 
+\rightlogo[1]{fime.png}
+
+\begin{document}
+
+\conference{\raisebox{2cm}[0cm]{\includegraphics[width=50mm]{qr-code.png}}
+  \hfill
+  \raisebox{2cm}[0cm]{\includegraphics[width=175mm]{provericyt.png}}
+  \hfill
+  \raisebox{2cm}[0cm]{\includegraphics[width=50mm]{ipn.png}}
+  \hfill
+  \raisebox{2cm}[0cm]{\includegraphics[width=150mm]{verano2021.png}}}
+
+\maketitle
+\begin{abstract}
+Se busca implementar modelos del comportamiento de epidemias en una población mediante técnicas de simulación multi-agente, incorporando medidas de contingencia. El objetivo es identificar hasta qué grado diversos factores propician o disminuyen el número de contagios, y con ello, apoyar la toma de decisiones de salud pública.
+\end{abstract}
+
+\begin{multicols}{2}
+
+\section{Introducción}
+La humanidad ha sido asediada por enfermedades infecciosas a lo largo de la historia. Ejemplos en la era moderna incluyen las epidemias del SARS, MERS, influenza AH1N1, ébola, y en la actualidad, el SARS CoV-2, virus que causa la enfermedad conocida como \emph{covid-19}. Ante estas eventualidades, gobiernos de distintos niveles deben adoptar medidas prontas y efectivas para evitar una crisis de salud pública. Sin embargo, es difícil saber el impacto que tendrán las acciones tomadas ante un sistema complejo y dinámico, como lo es la propagación de una enfermedad en la población. Ante la inviabilidad logística, y quizá ética, de ensayar distintas medidas diréctamente a nivel población, surge la necesidad de realizar ensayos computacionales mediante modelos matemáticos de la enfermedad. La naturaleza aleatoria y evolutiva de los procesos de contagio hace de las simulaciones estocásticas una de las maneras más efectivas de estudiar y predecir el fenómeno.
+
+Las técnicas de simulación multi-agente permiten analizar y cuantificar los efectos de distintas medidas ante la propagación de enfermedades, tales como el distanciamiento social, el uso de cubrebocas, o el aislamiento social, además de interacciones con otros factores como la densidad poblacional, nivel socioeconómico y la calidad de aire. La comprensión de estas diferencias conlleva a una toma de decisiones facilitada y basada en evidencia científica. 
+
+\subsection*{Hipótesis}
+
+La simulación de modelos epidemiológicos permite una toma de decisiones más informada y con mejores resultados.
+
+\subsection*{Objetivos}
+
+El objetivo general es diseñar, implementar y analizar una simulación multi-agente epidemiológica que permita medir los efectos que tienen distintas medidas de contención contra el contagio y propagación de una enfermedad infecciosa.\par
+Los \emph{objetivos específicos} para el presente proyecto son:\par
+\begin{itemize}
+  \item \textbf{Modelado matemático} Modelado matemático. Diseñar e implementar una simulación multiagente de un modelo epidemiológico.
+  \item \textbf{Software abierto} Implementar un prototipo computacional para explorar los efectos de distintas medidas de contingencia.
+  \item \textbf{Visualización científica} Cuantificar y visualizar los efectos de las diversas medidas para evitar la propagación del virus.
+\end{itemize}
+
+\section{Antecedentes}
+Los modelos matemáticos para el estudio de epidemias han sido estudiados por décadas \cite{decadas}. Varios buscan predecir el tamaño final de una epidemia con alguna probabilidad, así como otros buscando controlar el contagio \cite{contagio}, mientras otros han estudiado el impacto de las medidas de contención de la propagación del virus \cite{virus}. En el caso específico de las simulaciones multi-agente, además de ser usadas para el estudio de epidemias \cite{epidemias} también se han usado para abordar problemas de transporte \cite{transporte} o finanzas \cite{finanzas}.
+
+La figura \ref{diag} muestra el modelo SIR, el cual es un modelo epidemiológico usado para predecir el comportamiento de una epidemia. Recibe su nombre de las iniciales de individuos susceptibles (s), infectados (i) y recuperados (r), asimismo se basa en estos tres puntos principales para capturar muchas de las características típicas de los brotes epidémicos.
+
+\begin{figure}
+\captionsetup{type=figure}
+\setcounter{figure}{0}
+\begin{center}
+    \begin{tikzpicture}[]
+    \node (n1) [elem] {S};
+    \node (n2) [elem, right of=n1, xshift=2cm] {I};
+    \node (n3) [elem, right of=n2, xshift=2cm] {R};
+    \draw [line] (n1) -- (n2);
+    \draw [line] (n2) -- (n3);
+    \end{tikzpicture}
+\end{center}
+\caption{Modelo SIR}
+\label{diag}
+\end{figure}
+
+\section{Solución propuesta}
+
+Primero, se establecerán los parámetros epidémicos y demográficos, mediante una revisión de la literatura. Teniendo definidos los parámetros, se procede a diseñar la simulación multiagente, basándonos en técnicas existentes \cite{transporte}. Con la finalidad de medir el impacto en el número de infectados, se realizarán simulaciones variando parámetros como la probabilidad
+de contagio, y se incorporarán intervenciones como uso de cubrebocas, distanciamiento social, o la introducción de una vacuna con un porcentaje ajustable de efectividad. También se medirá el efecto de las intervenciones con respecto al momento en que se llevan acabo.
+
+\subsection*{Herramientas}
+
+Como herramienta principal se tiene \textbf{Python 3.8} \citep{python}, el cual es un lenguaje de programación multiparadigma.
+
+\section{Experimentos}
+
+Inicialmente, la cantidad de infectados y recuperados es cero, mientras que toda la población es susceptible.\par
+Si bien es cierto que la vacuna no previene un contagio, también lo es que los individuos vacunados se vuelven menos susceptibles a contraer los síntomas de la enfermedad infecciosa. Por otro lado, la población infectada y recuperada ha aumentado conforme avanza esta crisis sanitaria, como se puede apreciar en la figura \ref{imagen}.
+
+\begin{figure}[h]
+\setcounter{figure}{1}
+\captionsetup{type=figure}
+\begin{center}
+   \includegraphics[width=245mm]{imagen.png}
+   \end{center}
+    \caption{Modelo que permite conocer el impacto de distintas intervenciones para facilitar la posible toma de decisiones ante la propagación de una enfermedad infecciosa}
+    \label{imagen}
+    \centering
+\end{figure}
+
+\section{Conclusiones}
+
+Al agregar medidas de contingencia en modelos epidemiológicos como el que proponemos permitirá explorar sus efectos de forma cuantitativa.
+
+\subsection*{Agradecimientos}
+
+{\small Esta propuesta continúa la investigación iniciada en los proyectos PAICyT IT512-15 \emph{Herramientas computacionales para análisis epidemiológico multifactorial} y PAICyT CE1421-20 \emph{Exploración algorítmica de relaciones entre calidad de aire y bienestar}.
+    
+    El primer autor agradece al programa PROVERICyT por brindarle la oportunidad de participar en el Verano Científico FIME 2021.
+    Por su parte, la segunda autora agradece al Instituto Politécnico Nacional por el otorgamiento de la beca, asimismo al Programa Delfín por brindarle la oportunidad de participar en este verano científico.
+
+    Agradecemos a la Lic. Fabiola Vázquez, quien inició su trabajo de maestría en este tema.
+    
+    El póster se preparó con \url{https://www.overleaf.com/}.}
+
+\end{multicols} 
+
+\bibliography{poster}
+\bibliographystyle{plainnat}
+
+\end{document}
