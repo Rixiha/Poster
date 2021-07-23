@@ -62,7 +62,7 @@ Los \emph{objetivos específicos} para el presente proyecto son:\par
 \section{Antecedentes}
 Los modelos matemáticos para el estudio de epidemias han sido estudiados por décadas \cite{decadas}. Varios buscan predecir el tamaño final de una epidemia con alguna probabilidad, así como otros buscando controlar el contagio \cite{contagio}, mientras otros han estudiado el impacto de las medidas de contención de la propagación del virus \cite{virus}. En el caso específico de las simulaciones multi-agente, además de ser usadas para el estudio de epidemias \cite{epidemias} también se han usado para abordar problemas de transporte \cite{transporte} o finanzas \cite{finanzas}.
 
-El modelo SIR es un modelo epidemiológico usado para predecir el comportamiento de una epidemia. Recibe su nombre de las iniciales de individuos susceptibles (s), infectados (i) y recuperados (r), asimismo se basa en estos tres puntos principales para capturar muchas de las características típicas de los brotes epidémicos.
+La figura 1 \ref{diag} muestra el modelo SIR, el cual es un modelo epidemiológico usado para predecir el comportamiento de una epidemia. Recibe su nombre de las iniciales de individuos susceptibles (s), infectados (i) y recuperados (r), asimismo se basa en estos tres puntos principales para capturar muchas de las características típicas de los brotes epidémicos.
 
 \begin{figure}
 \captionsetup{type=figure}
@@ -93,8 +93,8 @@ Como herramienta principal se tiene \textbf{Python 3.8} \citep{python}, el cual 
 
 \section{Experimentos}
 
-Mientras que el número de población susceptible comienza con todos los individuos, la cantidad de infectados y recuperados inicia en cero.\par
-Medidas sanitarias como la aplicación de la vacuna y/o el ditanciamiento social han permitido que el número de personas susceptibles decrezca. Por otro lado, la población infectada y recuperada ha aumentado conforme avanza esta crisis sanitaria, como se puede apreciar en la siguiente gráfica\ref{imagen}.
+Inicialmente, la cantidad de infectados y recuperados es cero, mientras que toda la población es susceptible.\par
+Si bien es cierto que la vacuna no previene un contagio, también lo es que los individuos vacunados se vuelven menos susceptibles a contraer los síntomas de la enfermedad infecciosa. Por otro lado, la población infectada y recuperada ha aumentado conforme avanza esta crisis sanitaria, como se puede apreciar en la figura 2 \ref{imagen}.
 
 \begin{figure}[h]
 \setcounter{figure}{1}
