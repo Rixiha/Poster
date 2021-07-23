@@ -60,7 +60,9 @@ Los \emph{objetivos específicos} para el presente proyecto son:\par
 \end{itemize}
 
 \section{Antecedentes}
-Los modelos matemáticos para el estudio de epidemias han sido estudiados por décadas \cite{decadas}. Varios buscan predecir el tamaño final de una epidemia con alguna probabilidad, así como otros buscando controlar el contagio \cite{contagio}, mientras otros han estudiado el impacto de las medidas de contención de la propagación del virus \cite{virus}. En el caso específico de las simulaciones multi-agente, además de ser usadas para el estudio de epidemias \cite{epidemias} también se han usado para abordar problemas de transporte \cite{transporte} o finanzas \cite{finanzas}. 
+Los modelos matemáticos para el estudio de epidemias han sido estudiados por décadas \cite{decadas}. Varios buscan predecir el tamaño final de una epidemia con alguna probabilidad, así como otros buscando controlar el contagio \cite{contagio}, mientras otros han estudiado el impacto de las medidas de contención de la propagación del virus \cite{virus}. En el caso específico de las simulaciones multi-agente, además de ser usadas para el estudio de epidemias \cite{epidemias} también se han usado para abordar problemas de transporte \cite{transporte} o finanzas \cite{finanzas}.
+
+El modelo SIR es un modelo epidemiológico usado para predecir el comportamiento de una epidemia. Recibe su nombre de las iniciales de individuos susceptibles (s), infectados (i) y recuperados (r), asimismo se basa en estos tres puntos principales para capturar muchas de las características típicas de los brotes epidémicos.
 
 \begin{figure}
 \captionsetup{type=figure}
@@ -76,14 +78,14 @@ Los modelos matemáticos para el estudio de epidemias han sido estudiados por d�
      \draw [line] (n2) -- (n3);
     \end{tikzpicture}
 \end{center}
-\caption{El modelo SIR es un modelo epidemiológico usado para predecir el comportamiento de una epidemia. Recibe su nombre de las iniciales de individuos susceptibles (s), infectados (i) y recuperados (r), asimismo se basa en estos tres puntos principales para capturar muchas de las características típicas de los brotes epidémicos.}
+\caption{Modelo SIR}
 \label{diag}
 \end{figure}
 
 \section{Solución propuesta}
 
-Primero, se establecerán los parámetros epidémicos (e.g. tasa de contagio de la infección) y demográficos (e.g. edad de los agentes), mediante una revisión de la literatura. Teniendo definidos los parámetros, se procede a diseñar la simulación multiagente, basándonos en técnicas existentes \cite{transporte}. Con la finalidad de medir el impacto en el número de infectados, se realizarán simulaciones variando parámetros como la probabilidad
-de contagio, y se incorporarán intervenciones como uso de cubrebocas, distanciamiento social, o la introducción de una vacuna con un porcentaje ajustable de efectividad. También se medirá el efecto de las intervenciones con respecto al momento en que se llevan acabo. Las hipótesis que surjan de nuestras simulaciones serán verificadas por medio de pruebas estadísticas.
+Primero, se establecerán los parámetros epidémicos y demográficos, mediante una revisión de la literatura. Teniendo definidos los parámetros, se procede a diseñar la simulación multiagente, basándonos en técnicas existentes \cite{transporte}. Con la finalidad de medir el impacto en el número de infectados, se realizarán simulaciones variando parámetros como la probabilidad
+de contagio, y se incorporarán intervenciones como uso de cubrebocas, distanciamiento social, o la introducción de una vacuna con un porcentaje ajustable de efectividad. También se medirá el efecto de las intervenciones con respecto al momento en que se llevan acabo.
 
 \subsection*{Herramientas}
 
@@ -98,7 +100,7 @@ Medidas sanitarias como la aplicación de la vacuna y/o el ditanciamiento social
 \setcounter{figure}{1}
 \captionsetup{type=figure}
 \begin{center}
-   \includegraphics[width=245mm]{imagen.png}
+   \includegraphics[width=220mm]{imagen.png}
    \end{center}
     \caption{Modelo que permite conocer el impacto de distintas intervenciones para facilitar la posible toma de decisiones ante la propagación de una enfermedad infecciosa}
     \label{imagen}
@@ -116,7 +118,7 @@ Al agregar medidas de contingencia en modelos epidemiológicos como el que propo
     El primer autor agradece al programa PROVERICyT por brindarle la oportunidad de participar en el Verano Científico FIME 2021.
     Por su parte, la segunda autora agradece al Instituto Politécnico Nacional por el otorgamiento de la beca, asimismo al Programa Delfín por brindarle la oportunidad de participar en este verano científico.
 
-    Agradecemos a la Lic. Ericka Fabiola Vázquez Alcalá, quien inició su trabajo de maestría en este tema.
+    Agradecemos a la Lic. Fabiola Vázquez, quien inició su trabajo de maestría en este tema.
     
     El póster se preparó con \url{https://www.overleaf.com/}.}
 
